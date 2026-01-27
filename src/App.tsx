@@ -14,6 +14,7 @@ function App() {
   const [result, setResult] = useState('')
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
   const [showToast, setShowToast] = useState(false)
+  const [showPolicy, setShowPolicy] = useState<'privacy' | 'terms' | null>(null)
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -149,6 +150,14 @@ function App() {
               data-full-width-responsive="true"></ins>
           </div>
           <button className="btn-primary" onClick={handleStart}>테스트 시작하기</button>
+
+          <div className="info-content">
+            <h2>🧠 MBTI란 무엇인가요?</h2>
+            <p>MBTI(Myers-Briggs Type Indicator)는 심리학자 칼 융의 심리 유형론을 바탕으로 고안된 성격 유형 검사입니다. 4가지 지표(E-I, S-N, T-F, J-P)를 통해 사람의 성격을 16가지 유형으로 분류하며, 이를 통해 자신의 성향과 타인과의 소통 방식을 깊이 있게 이해할 수 있습니다.</p>
+
+            <h2 style={{ marginTop: '20px' }}>🌟 이 테스트의 특별함</h2>
+            <p>본 테스트는 최신 심리학 문항을 기반으로 설계되었으며, 단순한 결과를 넘어 당신의 잠재력과 보완점을 함께 제시합니다. 프리미엄 UI를 통해 즐거운 경험을 만끽해보세요.</p>
+          </div>
         </div>
       )}
 
@@ -188,7 +197,14 @@ function App() {
             "{mbtiResults[result]?.title}"
           </h2>
 
-          <div className="ad-container">AD 영역 (중간 광고)</div>
+          <div style={{ margin: '20px 0' }}>
+            <ins className="adsbygoogle"
+              style={{ display: 'block' }}
+              data-ad-client="ca-pub-2242605802120236"
+              data-ad-slot="6789012345"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
+          </div>
 
           <div className="result-content">
             <p className="description">{mbtiResults[result]?.description}</p>
@@ -231,9 +247,56 @@ function App() {
           </div>
 
           <button className="btn-primary" onClick={reset}>🔄 다시 테스트하기</button>
-          <div className="ad-container">AD 영역 (하단 광고)</div>
+          <div style={{ marginTop: '20px' }}>
+            <ins className="adsbygoogle"
+              style={{ display: 'block' }}
+              data-ad-client="ca-pub-2242605802120236"
+              data-ad-slot="7890123456"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
+          </div>
         </div>
       )}
+      {showPolicy && (
+        <div className="glass-card policy-card" style={{ marginTop: '20px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+            <h2 style={{ fontSize: '1.2rem', margin: 0 }}>{showPolicy === 'privacy' ? '🛡️ 개인정보처리방침' : '📜 이용약관'}</h2>
+            <button onClick={() => setShowPolicy(null)} style={{ background: 'none', border: 'none', color: 'var(--text-primary)', fontSize: '1.5rem', cursor: 'pointer' }}>×</button>
+          </div>
+          <div className="policy-content">
+            {showPolicy === 'privacy' ? (
+              <>
+                <p>본 사이트는 사용자의 개인정보를 소중히 다룸니다.</p>
+                <h3>1. 개인정보 수집 항목</h3>
+                <p>본 사이트는 별도의 회원가입 없이 이용 가능하며, 어떠한 개인정보(이름, 이메일 등)도 서버에 저장하지 않습니다.</p>
+                <h3>2. 쿠키 사용 및 광고</h3>
+                <p>구글 애드센스 등 제3자 광고주는 사용자의 방문 기록을 바탕으로 맞춤형 광고를 제공하기 위해 쿠키를 사용할 수 있습니다.</p>
+                <h3>3. 데이터 보안</h3>
+                <p>테스트 결과는 사용자의 기기에만 임시 저장되며, 외부로 전송되지 않습니다.</p>
+              </>
+            ) : (
+              <>
+                <h3>1. 서비스 목적</h3>
+                <p>본 서비스는 성격 유형 파악을 돕는 엔터테인먼트 콘텐츠를 제공합니다.</p>
+                <h3>2. 책임의 한계</h3>
+                <p>본 테스트 결과는 참고용일 뿐이며, 의학적 또는 전문적 진단을 대신할 수 없습니다.</p>
+                <h3>3. 이용 주의사항</h3>
+                <p>타인의 결과를 비하하거나 상업적으로 재배포하는 행위를 금지합니다.</p>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      <footer className="footer">
+        <div className="footer-links">
+          <button onClick={() => setShowPolicy('privacy')}>개인정보처리방침</button>
+          <button onClick={() => setShowPolicy('terms')}>이용약관</button>
+          <button onClick={() => { setStep('START'); window.scrollTo(0, 0); }}>사이트 소개</button>
+        </div>
+        <p>© 2026 프리미엄 MBTI 테스트. All rights reserved.</p>
+        <p style={{ marginTop: '5px' }}>Contact: saraho76@example.com</p>
+      </footer>
     </div>
   )
 }

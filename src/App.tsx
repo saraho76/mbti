@@ -122,6 +122,7 @@ function App() {
 
   return (
     <div className="container">
+      {showToast && <div className="toast">✅ 링크가 복사되었습니다!</div>}
       <button className="theme-toggle" onClick={toggleTheme} title="테마 변경">
         {theme === 'dark' ? '☀️' : '🌙'}
       </button>
@@ -166,8 +167,8 @@ function App() {
             <button className="home-btn" onClick={() => setStep('START')}>🏠 처음으로</button>
           </div>
           <p style={{ marginBottom: '5px' }}>당신의 MBTI 유형은</p>
-          <h1 style={{ marginBottom: '0', fontSize: '3rem' }}>{result}</h1>
-          <h2 style={{ textAlign: 'center', marginBottom: '1.5rem', color: 'var(--accent-color)', fontSize: '1.2rem' }}>
+          <h1 style={{ marginBottom: '0', fontSize: '3.5rem', background: 'var(--primary-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{result}</h1>
+          <h2 style={{ textAlign: 'center', marginBottom: '1.5rem', color: 'var(--accent-color)', fontSize: '1.4rem' }}>
             "{mbtiResults[result]?.title}"
           </h2>
 
@@ -209,11 +210,11 @@ function App() {
           </div>
 
           <div className="share-buttons">
-            <button className="btn-secondary share-btn" onClick={copyLink}>링크 복사하기</button>
-            <button className="btn-secondary share-btn" style={{ background: '#FEE500', color: '#000', border: 'none' }} onClick={shareKakao}>카카오톡 공유</button>
+            <button className="btn-secondary share-btn" onClick={copyLink}>🔗 링크 복사</button>
+            <button className="btn-secondary share-btn" style={{ background: '#FEE500', color: '#000', border: 'none' }} onClick={shareKakao}>💬 카카오 공유</button>
           </div>
 
-          <button className="btn-primary" onClick={reset}>다시 테스트하기</button>
+          <button className="btn-primary" onClick={reset}>🔄 다시 테스트하기</button>
           <div className="ad-container">AD 영역 (하단 광고)</div>
         </div>
       )}

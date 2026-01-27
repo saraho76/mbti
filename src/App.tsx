@@ -119,6 +119,10 @@ function App() {
 
   return (
     <div className="container">
+      <button className="theme-toggle" onClick={toggleTheme} title="테마 변경">
+        {theme === 'dark' ? '☀️' : '🌙'}
+      </button>
+
       {step === 'START' && (
         <div className="glass-card">
           <h1>나의 MBTI 테스트</h1>
@@ -130,6 +134,9 @@ function App() {
 
       {step === 'TEST' && (
         <div className="glass-card">
+          <div style={{ textAlign: 'left' }}>
+            <button className="home-btn" onClick={goHome}>🏠 처음으로</button>
+          </div>
           <div className="progress-bar">
             <div
               className="progress-fill"
@@ -137,7 +144,7 @@ function App() {
             ></div>
           </div>
           <h2>Q{currentIdx + 1}.</h2>
-          <p style={{ fontSize: '1.2rem', color: '#fff' }}>{questions[currentIdx].text}</p>
+          <p style={{ fontSize: '1.2rem', color: 'var(--text-primary)' }}>{questions[currentIdx].text}</p>
           {questions[currentIdx].options.map((opt, i) => (
             <button
               key={i}
@@ -152,6 +159,9 @@ function App() {
 
       {step === 'RESULT' && (
         <div className="glass-card result-card">
+          <div style={{ textAlign: 'left' }}>
+            <button className="home-btn" onClick={() => setStep('START')}>🏠 처음으로</button>
+          </div>
           <p style={{ marginBottom: '5px' }}>당신의 MBTI 유형은</p>
           <h1 style={{ marginBottom: '0', fontSize: '3rem' }}>{result}</h1>
           <h2 style={{ textAlign: 'center', marginBottom: '1.5rem', color: 'var(--accent-color)', fontSize: '1.2rem' }}>

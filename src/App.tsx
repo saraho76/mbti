@@ -13,6 +13,7 @@ function App() {
   })
   const [result, setResult] = useState('')
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+  const [showToast, setShowToast] = useState(false)
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -60,20 +61,24 @@ function App() {
     setStep('START')
   }
 
+  const triggerToast = () => {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 2000);
+  }
+
   const copyLink = () => {
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(() => {
-      alert('링크가 복사되었습니다!');
+      triggerToast();
     }).catch(err => {
       console.error('링크 복사 실패:', err);
-      // 폴백: 구형 브라우저 대응
       const textArea = document.createElement("textarea");
       textArea.value = url;
       document.body.appendChild(textArea);
       textArea.select();
       try {
         document.execCommand('copy');
-        alert('링크가 복사되었습니다!');
+        triggerToast();
       } catch (err) {
         alert('링크 복사에 실패했습니다.');
       }
@@ -89,8 +94,6 @@ function App() {
 
     const Kakao = (window as any).Kakao;
     if (!Kakao.isInitialized()) {
-      // 본인의 JavaScript 키를 입력하세요.
-      // 실제 배포 시에는 본인의 API 키로 교체해야 합니다.
       Kakao.init('84c56e30b35587f7a8f1b9b5f5f5f5f5');
     }
 

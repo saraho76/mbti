@@ -258,30 +258,26 @@ function App() {
         </div>
       )}
       {showPolicy && (
-        <div className="glass-card policy-card" style={{ marginTop: '20px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-            <h2 style={{ fontSize: '1.2rem', margin: 0 }}>{showPolicy === 'privacy' ? '🛡️ 개인정보처리방침' : '📜 이용약관'}</h2>
-            <button onClick={() => setShowPolicy(null)} style={{ background: 'none', border: 'none', color: 'var(--text-primary)', fontSize: '1.5rem', cursor: 'pointer' }}>×</button>
+        <div className="glass-card policy-card">
+          <div className="policy-header">
+            <h2>{showPolicy === 'privacy' ? '🛡️ 개인정보처리방침' : '📜 이용약관'}</h2>
+            <button className="close-btn" onClick={() => setShowPolicy(null)} aria-label="닫기">×</button>
           </div>
           <div className="policy-content">
             {showPolicy === 'privacy' ? (
               <>
-                <p>본 사이트는 사용자의 개인정보를 소중히 다룸니다.</p>
-                <h3>1. 개인정보 수집 항목</h3>
-                <p>본 사이트는 별도의 회원가입 없이 이용 가능하며, 어떠한 개인정보(이름, 이메일 등)도 서버에 저장하지 않습니다.</p>
-                <h3>2. 쿠키 사용 및 광고</h3>
-                <p>구글 애드센스 등 제3자 광고주는 사용자의 방문 기록을 바탕으로 맞춤형 광고를 제공하기 위해 쿠키를 사용할 수 있습니다.</p>
-                <h3>3. 데이터 보안</h3>
-                <p>테스트 결과는 사용자의 기기에만 임시 저장되며, 외부로 전송되지 않습니다.</p>
+                <p>본 사이트는 사용자의 개인정보를 소중히 다룹니다.</p>
+                <h3>데이터 수집 및 이용</h3>
+                <p>본 사이트는 별도의 회원가입 없이 이용 가능하며, 어떠한 개인식별정보도 서버에 저장하지 않습니다. 테스트 데이터는 브라우저 세션 동안에만 유지됩니다.</p>
+                <h3>제3자 서비스 이용</h3>
+                <p>구글 애드센스 등 제3자 광고주는 맞춤형 광고 제공을 위해 쿠키를 사용할 수 있습니다. 사용자는 브라우저 설정에서 이를 제어할 수 있습니다.</p>
               </>
             ) : (
               <>
-                <h3>1. 서비스 목적</h3>
-                <p>본 서비스는 성격 유형 파악을 돕는 엔터테인먼트 콘텐츠를 제공합니다.</p>
-                <h3>2. 책임의 한계</h3>
-                <p>본 테스트 결과는 참고용일 뿐이며, 의학적 또는 전문적 진단을 대신할 수 없습니다.</p>
-                <h3>3. 이용 주의사항</h3>
-                <p>타인의 결과를 비하하거나 상업적으로 재배포하는 행위를 금지합니다.</p>
+                <h3>서비스 이용안내</h3>
+                <p>본 서비스는 성격 유형 파악을 돕는 엔터테인먼트 목적의 콘텐츠를 제공합니다. 결과는 통계적 경향성에 기반하며 전문적 진단을 대신하지 않습니다.</p>
+                <h3>저작권 안내</h3>
+                <p>본 사이트의 디자인과 문항, 결과 콘텐츠에 대한 무단 복제 및 상업적 이용을 금합니다. 개인적 공유는 얼마든지 환영합니다.</p>
               </>
             )}
           </div>

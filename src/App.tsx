@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import { questions } from './data/questions'
 import { mbtiResults } from './data/mbtiResults'
@@ -12,6 +12,21 @@ function App() {
     E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0
   })
   const [result, setResult] = useState('')
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
+  const goHome = () => {
+    if (confirm('처음으로 돌아가시겠습니까? 진행 중인 테스트는 저장되지 않습니다.')) {
+      setStep('START')
+    }
+  }
 
   const handleStart = () => {
     setStep('TEST')

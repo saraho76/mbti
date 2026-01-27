@@ -184,14 +184,14 @@ function App() {
             </div>
 
             <div className="info-section">
-              <h3>💪 장점</h3>
+              <h3>🎯 당신의 장점</h3>
               <ul>
                 {mbtiResults[result]?.strengths.map(s => <li key={s}>{s}</li>)}
               </ul>
             </div>
 
             <div className="info-section">
-              <h3>⚠️ 단점</h3>
+              <h3>📍 주의할 점</h3>
               <ul>
                 {mbtiResults[result]?.weaknesses.map(w => <li key={w}>{w}</li>)}
               </ul>
@@ -199,11 +199,11 @@ function App() {
 
             <div className="compatibility-section">
               <div className="comp-item good">
-                <span>최고의 궁합</span>
+                <span>💕 최고의 짝꿍</span>
                 <strong>{mbtiResults[result]?.matches.good}</strong>
               </div>
               <div className="comp-item bad">
-                <span>아쉬운 궁합</span>
+                <span>🤔 조금 불편한 사이</span>
                 <strong>{mbtiResults[result]?.matches.bad}</strong>
               </div>
             </div>

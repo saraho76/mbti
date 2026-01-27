@@ -20,15 +20,6 @@ function App() {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 
-  useEffect(() => {
-    try {
-      (window as any).adsbygoogle = (window as any).adsbygoogle || [];
-      (window as any).adsbygoogle.push({});
-    } catch (e) {
-      console.error('AdSense error:', e);
-    }
-  }, [step]) // 페이지 전환 시마다 광고 로드 시도
-
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
@@ -141,14 +132,6 @@ function App() {
         <div className="glass-card">
           <h1>나의 MBTI 테스트</h1>
           <p>나도 모르는 나의 진짜 성격을 알아보세요.<br />전문적인 문항을 통해 당신의 성향을 분석합니다.</p>
-          <div className="ad-container">
-            <ins className="adsbygoogle"
-              style={{ display: 'block' }}
-              data-ad-client="ca-pub-2242605802120236"
-              data-ad-slot="auto"
-              data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
-          </div>
           <button className="btn-primary" onClick={handleStart}>테스트 시작하기</button>
 
           <div className="info-content">
@@ -197,14 +180,6 @@ function App() {
             "{mbtiResults[result]?.title}"
           </h2>
 
-          <div style={{ margin: '20px 0' }}>
-            <ins className="adsbygoogle"
-              style={{ display: 'block' }}
-              data-ad-client="ca-pub-2242605802120236"
-              data-ad-slot="6789012345"
-              data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
-          </div>
 
           <div className="result-content">
             <p className="description">{mbtiResults[result]?.description}</p>
@@ -247,14 +222,6 @@ function App() {
           </div>
 
           <button className="btn-primary" onClick={reset}>🔄 다시 테스트하기</button>
-          <div style={{ marginTop: '20px' }}>
-            <ins className="adsbygoogle"
-              style={{ display: 'block' }}
-              data-ad-client="ca-pub-2242605802120236"
-              data-ad-slot="7890123456"
-              data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
-          </div>
         </div>
       )}
       {showPolicy && (

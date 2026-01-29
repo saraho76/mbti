@@ -131,15 +131,26 @@ function App() {
       {step === 'START' && (
         <div className="glass-card">
           <h1>나의 MBTI 테스트</h1>
-          <p>나도 모르는 나의 진짜 성격을 알아보세요.<br />전문적인 문항을 통해 당신의 성향을 분석합니다.</p>
+          <p>나도 모르는 나의 진짜 성격을 알아보세요.<br />심리학적 기반의 정률 분석으로 당신의 성향을 정확히 진단합니다.</p>
           <button className="btn-primary" onClick={handleStart}>테스트 시작하기</button>
 
           <div className="info-content">
             <h2>🧠 MBTI란 무엇인가요?</h2>
-            <p>MBTI(Myers-Briggs Type Indicator)는 심리학자 칼 융의 심리 유형론을 바탕으로 고안된 성격 유형 검사입니다. 4가지 지표(E-I, S-N, T-F, J-P)를 통해 사람의 성격을 16가지 유형으로 분류하며, 이를 통해 자신의 성향과 타인과의 소통 방식을 깊이 있게 이해할 수 있습니다.</p>
+            <p>MBTI(Myers-Briggs Type Indicator)는 심리학자 <strong>칼 융(Carl Jung)</strong>의 심리 유형론을 바탕으로 캐서린 브릭스와 이사벨 마이어스가 고안한 성격 유형 검사입니다. 인간의 성격 유형을 16가지로 분류하여, 자신과 타인에 대한 깊이 있는 이해를 돕습니다.</p>
 
-            <h2 style={{ marginTop: '20px' }}>🌟 이 테스트의 특별함</h2>
-            <p>본 테스트는 최신 심리학 문항을 기반으로 설계되었으며, 단순한 결과를 넘어 당신의 잠재력과 보완점을 함께 제시합니다. 프리미엄 UI를 통해 즐거운 경험을 만끽해보세요.</p>
+            <h3 style={{ marginTop: '15px', fontSize: '1rem', color: 'var(--accent-color)' }}>4가지 핵심 지표</h3>
+            <ul style={{ paddingLeft: '20px', marginBottom: '15px' }}>
+              <li><strong>E/I (외향/내향):</strong> 에너지의 방향 (외부 세계 vs 내부 성찰)</li>
+              <li><strong>S/N (감각/직관):</strong> 정보 수집 방식 (사실과 실제 vs 아이디어와 가능성)</li>
+              <li><strong>T/F (사고/감정):</strong> 의사결정 방식 (논리적 근거 vs 인간관계와 가치)</li>
+              <li><strong>J/P (판단/인식):</strong> 생활 양식 (계획적/체계적 vs 즉흥적/유연함)</li>
+            </ul>
+
+            <h2>🌟 프리미엄 MBTI 테스트의 장점</h2>
+            <p>본 사이트는 단순히 결과를 보여주는 데 그치지 않고, <strong>전문적인 조언(Personalized Advice)</strong>과 <strong>강점/약점 분석</strong>을 통해 당신의 성장을 돕습니다. 모든 데이터는 안전하게 보호되며, 직관적이고 세련된 UI를 통해 최상의 경험을 제공합니다.</p>
+
+            <h2 style={{ marginTop: '20px' }}>⚖️ 테스트 정확도를 높이는 팁</h2>
+            <p>문항을 읽고 너무 오래 고민하지 마세요. 자신이 되고 싶은 모습이 아니라, <strong>평소에 자연스럽게 느끼고 행동하는 방식</strong>을 선택하는 것이 가장 정확한 결과를 얻는 방법입니다.</p>
           </div>
         </div>
       )}
@@ -202,6 +213,11 @@ function App() {
               <ul>
                 {mbtiResults[result]?.weaknesses.map(w => <li key={w}>{w}</li>)}
               </ul>
+            </div>
+
+            <div className="info-section advice-section">
+              <h3>💡 성장을 위한 조언</h3>
+              <p style={{ lineHeight: '1.6', fontSize: '0.95rem' }}>{mbtiResults[result]?.advice}</p>
             </div>
 
             <div className="compatibility-section">

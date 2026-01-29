@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+User-agent: Yeti
+Allow: /
+
 Sitemap: https://mbti-7gk.pages.dev/sitemap.xml

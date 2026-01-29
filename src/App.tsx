@@ -135,10 +135,10 @@ function App() {
           <button className="btn-primary" onClick={handleStart}>테스트 시작하기</button>
 
           <div className="info-content">
-            <h2>🧠 MBTI란 무엇인가요?</h2>
+            <h2>MBTI란 무엇인가요?</h2>
             <p>MBTI(Myers-Briggs Type Indicator)는 심리학자 <strong>칼 융(Carl Jung)</strong>의 심리 유형론을 바탕으로 캐서린 브릭스와 이사벨 마이어스가 고안한 성격 유형 검사입니다. 인간의 성격 유형을 16가지로 분류하여, 자신과 타인에 대한 깊이 있는 이해를 돕습니다.</p>
 
-            <h3 style={{ marginTop: '15px', fontSize: '1rem', color: 'var(--accent-color)' }}>4가지 핵심 지표</h3>
+            <h3>4가지 핵심 지표</h3>
             <ul style={{ paddingLeft: '20px', marginBottom: '15px' }}>
               <li><strong>E/I (외향/내향):</strong> 에너지의 방향 (외부 세계 vs 내부 성찰)</li>
               <li><strong>S/N (감각/직관):</strong> 정보 수집 방식 (사실과 실제 vs 아이디어와 가능성)</li>
@@ -146,10 +146,10 @@ function App() {
               <li><strong>J/P (판단/인식):</strong> 생활 양식 (계획적/체계적 vs 즉흥적/유연함)</li>
             </ul>
 
-            <h2>🌟 프리미엄 MBTI 테스트의 장점</h2>
+            <h2>프리미엄 MBTI 테스트의 장점</h2>
             <p>본 사이트는 단순히 결과를 보여주는 데 그치지 않고, <strong>전문적인 조언(Personalized Advice)</strong>과 <strong>강점/약점 분석</strong>을 통해 당신의 성장을 돕습니다. 모든 데이터는 안전하게 보호되며, 직관적이고 세련된 UI를 통해 최상의 경험을 제공합니다.</p>
 
-            <h2 style={{ marginTop: '20px' }}>⚖️ 테스트 정확도를 높이는 팁</h2>
+            <h2>테스트 정확도를 높이는 팁</h2>
             <p>문항을 읽고 너무 오래 고민하지 마세요. 자신이 되고 싶은 모습이 아니라, <strong>평소에 자연스럽게 느끼고 행동하는 방식</strong>을 선택하는 것이 가장 정확한 결과를 얻는 방법입니다.</p>
           </div>
         </div>
@@ -166,8 +166,8 @@ function App() {
               style={{ width: `${((currentIdx + 1) / questions.length) * 100}%` }}
             ></div>
           </div>
-          <h2>Q{currentIdx + 1}.</h2>
-          <p style={{ fontSize: '1.2rem', color: 'var(--text-primary)' }}>{questions[currentIdx].text}</p>
+          <p className="question-number">MBTI 테스트 문항 {currentIdx + 1} / {questions.length}</p>
+          <h2>{questions[currentIdx].text}</h2>
           {questions[currentIdx].options.map((opt, i) => (
             <button
               key={i}
@@ -186,9 +186,9 @@ function App() {
             <button className="home-btn" onClick={() => setStep('START')}>🏠 처음으로</button>
           </div>
           <p style={{ marginBottom: '5px' }}>당신의 MBTI 유형은</p>
-          <h1 style={{ marginBottom: '0', fontSize: '3.5rem', background: 'var(--primary-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{result}</h1>
+          <p className="result-type" style={{ marginBottom: '0', fontSize: '3.5rem', background: 'var(--primary-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 'bold' }}>{result}</p>
           <h2 style={{ textAlign: 'center', marginBottom: '1.5rem', color: 'var(--accent-color)', fontSize: '1.4rem' }}>
-            "{mbtiResults[result]?.title}"
+            {mbtiResults[result]?.title}
           </h2>
 
 

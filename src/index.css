@@ -35,7 +35,7 @@
 
 body {
   min-height: 100vh;
-  background: url('/premium_mbti_bg.png') no-repeat center center fixed;
+  background: url('/premium_mbti_bg.webp') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -45,7 +45,7 @@ body {
 }
 
 [data-theme='light'] body {
-  background: linear-gradient(rgba(248, 250, 252, 0.85), rgba(248, 250, 252, 0.85)), url('/premium_mbti_bg.png') no-repeat center center fixed;
+  background: linear-gradient(rgba(248, 250, 252, 0.85), rgba(248, 250, 252, 0.85)), url('/premium_mbti_bg.webp') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -488,4 +488,50 @@ p {
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+
+/* Responsive Design (Media Queries) */
+@media screen and (max-width: 480px) {
+  #root {
+    padding: 10px;
+  }
+
+  .glass-card {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #root {
+    max-width: 600px;
+  }
+
+  .glass-card {
+    padding: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
